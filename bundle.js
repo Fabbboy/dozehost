@@ -9,6 +9,12 @@ class dozehost{
         this.rootFolder = rootFolder;
         this.port = port;
         this.defaultFile = defaultFile;
+        if (!fs.existsSync(rootFolder + "/logs")) {
+            fs.mkdirSync(rootFolder + "/logs");
+        }
+        if (!fs.existsSync(rootFolder + "/logs/debug.log")) {
+            fs.writeFileSync(rootFolder + "/logs/debug.log", "<<Started logging>>\n");
+        }
         if (!fs.existsSync(rootFolder + "/redirect.json")) {
             fs.writeFileSync(rootFolder + "/redirect.json", "{}");
         }

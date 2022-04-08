@@ -1,6 +1,7 @@
 //function that takes a root folder as input and a bool as input and host them
 const fs = require('fs');
 const add = require('./redirect.js');
+const log = require('./logging');
 
 function serve(root, port, defaultFile){
     //if first char is . remove it of default file
@@ -44,6 +45,7 @@ function serve(root, port, defaultFile){
                         res.writeHead(200);
                         res.end(data);
                 });
+                log(root, "-------------\nGot 404 Request\nRequest: " + file + "\nTimestamp: " + Date.now().toString() + "\n-------------\n", 1)
                 //res.end("./templates/404.html");
             } else {
                 res.writeHead(200);
@@ -61,9 +63,9 @@ function serve(root, port, defaultFile){
         });*/
     });
 
-
     //if url is not a redirect or a file and the path is not a file send a 404 error
     //listen on public ip and port
+    log(root, "-------------\nStarted server\nPort: " + port + "\nTimestamp: " + Date.now().toString() + "\n-------------\n", 1)
     app.listen(port);
     return port;
 
