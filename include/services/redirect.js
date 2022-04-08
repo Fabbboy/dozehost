@@ -12,7 +12,7 @@ function redirect(root, url, to){
                 return;
             } else {
                 //add url to to
-                red[url].push(url);
+                red[url].push(to);
                 //write file
                 fs.writeFileSync(file, JSON.stringify(red, null, 2));
             }
