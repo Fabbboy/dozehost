@@ -36,7 +36,14 @@ doze.serve()
 console.log("http://localhost:" + doze.port)
 ```
 5. Open your browser and go to http://localhost:3030 to see your website 🌐
-
+Now the file structure should look like this:
+```
+├── root 
+│   ├── index.html
+│   ├── redirect.json 
+│   └── 404.html    
+├── server.js
+```
 
 ### Features 🔧
 - Fast
