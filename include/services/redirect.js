@@ -7,15 +7,7 @@ function redirect(root, url, to){
     //check if url is in redirect.json
         //check if to is in redirect.json
         if (red.hasOwnProperty(url)) {
-            //check if url is in to
-            if (red[url].includes(to)) {
-                return;
-            } else {
-                //add url to to
-                red[url].push(to);
-                //write file
-                fs.writeFileSync(file, JSON.stringify(red, null, 2));
-            }
+            return;
         } else {
             //add to to redirect.json
             red[url] = [to];
