@@ -52,5 +52,5 @@ The script will also create a 404.html file if it doesn't find a file. You can e
 - Support for multiple servers
 
 ### License 🔑
-Dozehost is licensed under the MIT license. You can view the full license text [here](https://github.com/Fabbboy/dozehost#rlicense).
+Dozehost is licensed under the MIT license. You can view the full license text [here](https://github.com/Fabbboy/dozehost#license).
 
