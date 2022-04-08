@@ -1,12 +1,23 @@
 {
   "name": "dozehost",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Fabboy",
+  "license": "MIT",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabbboy/dozehost.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fabbboy/dozehost/issues"
+  },
+  "homepage": "https://github.com/Fabbboy/dozehost#readme",
+  "description": ""
 }
