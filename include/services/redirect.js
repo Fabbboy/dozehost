@@ -4,8 +4,13 @@ function redirect(root, url, to){
     var file = root + '/redirect.json';
     //read file
     const red = JSON.parse(fs.readFileSync(file, 'utf8'));
-    //check if url is in redirect.json
-        //check if to is in redirect.json
+    //if not add / infront of to
+    if(to.charAt(0) !== '/'){
+        to = '/' + to;
+    }
+    if(red.hasOwnProperty(url)){
+
+    }
         if (red.hasOwnProperty(url)) {
             return;
         } else {
