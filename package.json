@@ -1,7 +1,7 @@
 {
   "name": "dozehost",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.2.0",
+  "main": "bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,8 @@
     "url": "https://github.com/Fabbboy/dozehost/issues"
   },
   "homepage": "https://github.com/Fabbboy/dozehost#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "dozehost": "^1.1.0"
+  }
 }
