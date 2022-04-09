@@ -60,6 +60,7 @@ The script will also create a 404.html file if it doesn't find a file. You can e
 - Add support for other file types
 - Dashboard for admins
 - Support for multiple servers
+- external redirects
 
 ### License 🔑
 Dozehost is licensed under the MIT license. You can view the full license text [here](https://github.com/Fabbboy/dozehost/blob/master/license.md).

@@ -2,6 +2,7 @@
 const fs = require('fs');
 const add = require('./redirect.js');
 const log = require('./logging');
+//define io
 
 function serve(root, port, defaultFile){
     //if first char is . remove it of default file
@@ -62,12 +63,10 @@ function serve(root, port, defaultFile){
             }
         });*/
     });
-
-    //if url is not a redirect or a file and the path is not a file send a 404 error
-    //listen on public ip and port
     log(root, "-------------\nStarted server\nPort: " + port + "\nTimestamp: " + Date.now().toString() + "\n-------------\n", 1)
     app.listen(port);
     return port;
 
 }
+//Function to shutdown the server
 module.exports = serve;
