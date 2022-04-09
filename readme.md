@@ -39,12 +39,13 @@ console.log("http://localhost:" + doze.port)
 Now the file structure should look like this:
 ```
 ├── root 
-│   ├── index.html
-│   ├── redirect.json 
+│   ├── serverAssets 
+│   │   ├── 404.html
+│   │   └── redirect.json
 │   ├── debug 
 │   │   ├── ips.json
 │   │   └── debug.log
-│   └── 404.html    
+│   └── index.html    
 ├── server.js
 ```
 
