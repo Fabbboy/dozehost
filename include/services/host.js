@@ -30,14 +30,37 @@ function serve(root, port, defaultFile){
     //host app on port and root folder to the internet and return port number to user
     //on public ip
     const app = require('http').createServer(function (req, res) {
+        var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+        //read root/logs/ips.json and add ip to it if not already there and generate a user id
+        var ips = JSON.parse(fs.readFileSync(root + "/logs/ips.json", 'utf8'));
+        var userId = 0;
+        //generate random useid with letters and numbers and check if it is already in ips.json
+        while(true){
+            userId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            if(!ips[userId]){
+                break;
+            }
+        }
+        if(ips[ip] === undefined){
+            ips[ip] = userId;
+            userId++;
+            fs.writeFileSync(root + "/logs/ips.json", JSON.stringify(ips));
+        }
+
         const path = require('url').parse(req.url).pathname;
         let file = root + path;
         //create redirect.json file if it doesn't exist in the root folder
         //check if redirect.json includes the path requestet by the user and redirect to it if it does
         var redirect = JSON.parse(fs.readFileSync(root + "/redirect.json"));
-        if (redirect[path] !== undefined) {
-            file = root + redirect[path];
+        //check if redirect[path] includes http:// or https://
+        if(redirect[path] !== undefined){
+                file = root + redirect[path];
+                //get ip of the client
+                log(root, "-------------\nRedirected\nFrom: " + path + "\nTo: " + redirect[path] + "\nIp: " + ip +"\nTimestamp: " + Date.now().toString() + "\n-------------\n")
         }
+        /*if (redirect[path] !== undefined) {
+            file = root + redirect[path];
+        }*/
         //redirect to file
         fs.readFile(file, function (err, data) {
             if (err) {
@@ -46,7 +69,7 @@ function serve(root, port, defaultFile){
                         res.writeHead(200);
                         res.end(data);
                 });
-                log(root, "-------------\nGot 404 Request\nRequest: " + file + "\nTimestamp: " + Date.now().toString() + "\n-------------\n", 1)
+                log(root, "-------------\nGot 404 Request\nRequest: " + file + "\nTimestamp: " + Date.now().toString() + "\n-------------\n")
                 //res.end("./templates/404.html");
             } else {
                 res.writeHead(200);
@@ -63,7 +86,7 @@ function serve(root, port, defaultFile){
             }
         });*/
     });
-    log(root, "-------------\nStarted server\nPort: " + port + "\nTimestamp: " + Date.now().toString() + "\n-------------\n", 1)
+    log(root, "-------------\nStarted server\nPort: " + port + "\nTimestamp: " + Date.now().toString() + "\n-------------\n")
     app.listen(port);
     return port;
 

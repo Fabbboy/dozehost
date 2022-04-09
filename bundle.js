@@ -3,7 +3,6 @@ const newDir = require("./include/services/redirect")
 const fs = require("fs");
 const samples = require("./include/services/samples");
 const sam = new samples();
-const bind = require("./include/services/bind");
 
 class dozehost{
     constructor(rootFolder, port, defaultFile){
@@ -15,6 +14,9 @@ class dozehost{
         }
         if (!fs.existsSync(rootFolder + "/logs/debug.log")) {
             fs.writeFileSync(rootFolder + "/logs/debug.log", "<<Started logging>>\n");
+        }
+        if (!fs.existsSync(rootFolder + "/logs/ips.json")) {
+            fs.writeFileSync(rootFolder + "/logs/ips.json", "{}");
         }
         if (!fs.existsSync(rootFolder + "/redirect.json")) {
             fs.writeFileSync(rootFolder + "/redirect.json", "{}");

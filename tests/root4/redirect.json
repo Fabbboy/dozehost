@@ -1,5 +1,8 @@
 {
   "/": [
     "/index.html"
+  ],
+  "/google": [
+    "https://google.com"
   ]
 }
