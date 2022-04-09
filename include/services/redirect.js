@@ -2,7 +2,7 @@ const fs = require('fs');
 const log = require('./logging');
 
 function redirect(root, url, to){
-    var file = root + '/redirect.json';
+    var file = root + '/serverAssets/redirect.json';
     //read file
     const red = JSON.parse(fs.readFileSync(file, 'utf8'));
     //check if to includes http:// or https://

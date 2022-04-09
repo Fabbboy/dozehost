@@ -51,7 +51,7 @@ function serve(root, port, defaultFile){
         let file = root + path;
         //create redirect.json file if it doesn't exist in the root folder
         //check if redirect.json includes the path requestet by the user and redirect to it if it does
-        var redirect = JSON.parse(fs.readFileSync(root + "/redirect.json"));
+        var redirect = JSON.parse(fs.readFileSync(root + "/serverAssets/redirect.json"));
         //check if redirect[path] includes http:// or https://
         if(redirect[path] !== undefined){
                 file = root + redirect[path];
@@ -65,7 +65,7 @@ function serve(root, port, defaultFile){
         fs.readFile(file, function (err, data) {
             if (err) {
                 //res.writeHead(404);
-                fs.readFile(root + "/404.html", function (err, data) {
+                fs.readFile(root + "/serverAssets/404.html", function (err, data) {
                         res.writeHead(200);
                         res.end(data);
                 });

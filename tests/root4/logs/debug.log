@@ -123,3 +123,49 @@ To: /index.html
 Ip: ::ffff:127.0.0.1
 Timestamp: 1649494924403
 -------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649495528043
+-------------
+-------------
+Redirected
+From: /
+To: /index.html
+Ip: ::ffff:127.0.0.1
+Timestamp: 1649495529126
+-------------
+-------------
+Added Redirect
+From: /google
+To: /openLinks.html
+Timestamp: 1649495655424
+-------------
+-------------
+Added Redirect
+From: /
+To: /index.html
+Timestamp: 1649495655428
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649495655456
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649495688830
+-------------
+-------------
+Redirected
+From: /
+To: /index.html
+Ip: ::ffff:127.0.0.1
+Timestamp: 1649495690601
+-------------
+-------------
+Got 404 Request
+Request: ./root4/asd
+Timestamp: 1649495693325
+-------------
