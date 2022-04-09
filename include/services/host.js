@@ -2,9 +2,10 @@
 const fs = require('fs');
 const add = require('./redirect.js');
 const log = require('./logging');
+const ddos = require("./ddos")
 //define io
 
-function serve(root, port, defaultFile){
+function serve(root, port, defaultFile, cooldown){
     //if first char is . remove it of default file
     if(defaultFile[0] === '.'){
         defaultFile = defaultFile.substring(1);
@@ -30,22 +31,27 @@ function serve(root, port, defaultFile){
     //host app on port and root folder to the internet and return port number to user
     //on public ip
     const app = require('http').createServer(function (req, res) {
-        var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-        //read root/logs/ips.json and add ip to it if not already there and generate a user id
+
         var ips = JSON.parse(fs.readFileSync(root + "/logs/ips.json", 'utf8'));
-        var userId = 0;
-        //generate random useid with letters and numbers and check if it is already in ips.json
-        while(true){
-            userId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-            if(!ips[userId]){
-                break;
-            }
-        }
-        if(ips[ip] === undefined){
-            ips[ip] = userId;
-            userId++;
+        var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;//check if ip is in ips.json else add it with Date.now()
+        //run ddos check if true block request
+        const ddose = ddos(req, root, ip, cooldown)
+        if(ddose){
+            res.writeHead(403, {'Content-Type': 'text/html'});
+            res.end("<h1>403 Forbidden</h1>");
+            //wait for 5 seconds and then remove ip from ips.json
+            log(root, "-------------\nBlocked\nIp: " + ip + "\nTime: " + Date.now() - ips[ip] + "\n Timestamp: " + Date.now() + "\n-------------");
+            setTimeout(function(){
+                ips[ip] = undefined;
+                fs.writeFileSync(root + "/logs/ips.json", JSON.stringify(ips));
+            }, 1000);
+            ips[ip] = Date.now();
             fs.writeFileSync(root + "/logs/ips.json", JSON.stringify(ips));
+            return;
+        }else{
+
         }
+
 
         const path = require('url').parse(req.url).pathname;
         let file = root + path;
@@ -75,7 +81,14 @@ function serve(root, port, defaultFile){
                 res.writeHead(200);
                 res.end(data);
             }
+            ips[ip] = Date.now();
+            fs.writeFileSync(root + "/logs/ips.json", JSON.stringify(ips));
         });
+        //defend against ddos attack
+        //if ip last connection is less than 2 seconds ago, block it
+
+
+
        /* fs.readFile(file, function (err, data) {
             if (err) {
                 res.writeHead(404);

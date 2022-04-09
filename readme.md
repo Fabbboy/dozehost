@@ -54,12 +54,17 @@ Now the file structure should look like this:
 - Redirecting
 - Easy
 - Logging
+- DDOS protection (works sometimes but not always)
 - IP tracking (perfect if you're hosting your application publicly)
 
 The script will create a redirect.json file with all redirects in it. You can add and remove redirects from the redirect.json file. 
 The script will also create a 404.html file if it doesn't find a file. You can edit the 404.html file.
 The script will also create a debug.log file 
 The script will also create a ips.json with all the ips that have visited the website and their userid.
+
+### DDOS protection 💣
+The DDOS protection works with Milliseconds and will try to block the ip for a certain amount of time.
+
 ### Future Features 🚀
 - Add support for other file types
 - Dashboard for admins

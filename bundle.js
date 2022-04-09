@@ -5,9 +5,10 @@ const samples = require("./include/services/samples");
 const sam = new samples();
 
 class dozehost{
-    constructor(rootFolder, port, defaultFile){
+    constructor(rootFolder, port, defaultFile, cooldown){
         this.rootFolder = rootFolder;
         this.port = port;
+        this.cooldown = cooldown;
         this.defaultFile = defaultFile;
         if (!fs.existsSync(rootFolder + "/logs/")) {
             fs.mkdirSync(rootFolder + "/logs/");
@@ -28,7 +29,7 @@ class dozehost{
         fs.writeFileSync(rootFolder + "/serverAssets/404.html", sam.getErrorPage());
     }
     serve(){
-        serveI(this.rootFolder, this.port, this.defaultFile);
+        serveI(this.rootFolder, this.port, this.defaultFile, this.cooldown);
     }
     redirect(req, res){
         newDir(this.rootFolder, req, res);
