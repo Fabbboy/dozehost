@@ -1,0 +1,31 @@
+<<Started logging>>
+-------------
+Started server
+Port: 3030
+Timestamp: 1649442917797
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649442923230
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649442985096
+-------------
+-------------
+Got 404 Request
+Request: ./root2/favivcon.ico
+Timestamp: 1649442988737
+-------------
+-------------
+Got 404 Request
+Request: ./root2/asdasd
+Timestamp: 1649442990958
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649443277180
+-------------

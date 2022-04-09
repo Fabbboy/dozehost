@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+</head>
+<body>
+  <h1 class="title">404 page not found</h1>
+  <tt>You requested:</tt>
+  <br>
+  <br>
+  <tt id="address"></tt>
+  <br>
+  <br>
+  <div class="rem"><a>The page you were looking for was not found. Maybe the page doesn't exist anymore</a><br><a>Otherwise, try again or contact the website administrator</a></div>
+</body>
+</html>
+
+
+<style>
+    /*set font-family of all texts to helvetica, arial, helvetica*/
+    * {
+        font-family: helvetica, arial, helvetica,serif;
+    }
+    /*place title in the x-middle of the screen*/
+    .title {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    /*put all tt under the title*/
+    tt{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    #address{
+        position: absolute;
+        top: 25%;
+        left: 56%;
+        transform: translate(-50%, -50%);
+    }
+    /*put .rem under the address and put a red box arround it*/
+    .rem{
+        position: absolute;
+        top: 34%;
+        left: 52%;
+        transform: translate(-50%, -50%);
+        border: 1px solid red;
+        padding: 10px;
+    }
+    /*make all css takes media query */
+    @media screen and (max-width: 1100px) {
+        .title {
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        tt{
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #address{
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .rem{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+</style>
+
+<script>
+    //get the address of the page that was requested and put it in the tt
+    document.getElementById("address").innerHTML = window.location.href;
+</script>

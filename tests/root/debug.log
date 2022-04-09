@@ -1,0 +1,37 @@
+<<Started logging>>
+-------------
+Added Redirect
+From: /
+To: /index.html
+Timestamp: 1649443436158
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649443436168
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649443495201
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649443504567
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649443764199
+-------------
+-------------
+Got 404 Request
+Request: ./root/asd
+Timestamp: 1649443768204
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649453757836
+-------------

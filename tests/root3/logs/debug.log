@@ -1,0 +1,77 @@
+<<Started logging>>
+-------------
+Added Redirect
+From: /
+To: /index.html
+Timestamp: 1649454392113
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454392123
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454445865
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454529902
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454557625
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454575954
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454623295
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454649809
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454679580
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649454695563
+-------------
+-------------
+Started server
+Port: 3030
+Timestamp: 1649484157574
+-------------
+-------------
+Got 404 Request
+Request: ./root3/favicon.ico
+Timestamp: 1649484159981
+-------------
+-------------
+Got 404 Request
+Request: ./root3/shutdown
+Timestamp: 1649484163606
+-------------
+-------------
+Started server
+Port: 3031
+Timestamp: 1649487091662
+-------------
+-------------
+Got 404 Request
+Request: ./root3/favicon.ico
+Timestamp: 1649487093690
+-------------
